@@ -6,7 +6,7 @@ This repository contains web development projects focused on building responsive
 These projects were developed to improve my skills in UI/UX design, responsive layouts, and front-end development fundamentals.
 
 ---
-## preview
+## Preview
 ![Preview](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Demo%20HVAC1.jpg)
 ![Preview](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Truckpanel3.jpg)
 ![preview](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/warehouse%202.jpg)
