@@ -7,8 +7,7 @@ These projects were developed to improve my skills in UI/UX design, responsive l
 
 ---
 ## preview
-https://raw.githubusercontent.com/shirinmohajeri/HTML/refs/heads/main/page2.jpg
-
+![Preview](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Demo%20HVAC1.jpg)
 ---
 
 ## My Role
