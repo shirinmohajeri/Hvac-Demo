@@ -1,4 +1,4 @@
-# Web-Project-repo
+# HVAC Dashboard
 
 ## Overview
 This repository contains web development projects focused on building responsive, user-friendly, and visually clean interfaces using modern front-end technologies.
