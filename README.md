@@ -6,6 +6,10 @@ This repository contains web development projects focused on building responsive
 These projects were developed to improve my skills in UI/UX design, responsive layouts, and front-end development fundamentals.
 
 ---
+## preview
+https://raw.githubusercontent.com/shirinmohajeri/HTML/refs/heads/main/page2.jpg
+
+---
 
 ## My Role
 - Designed and developed responsive user interfaces using HTML, CSS, and JavaScript  
