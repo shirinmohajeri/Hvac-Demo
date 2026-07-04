@@ -1,11 +1,11 @@
-# HVAC Dashboard
+# HVAC Dashboard UI
 
-## Overview
-This repository contains web development projects focused on building responsive, user-friendly, and visually clean interfaces using modern front-end technologies.
-
-These projects were developed to improve my skills in UI/UX design, responsive layouts, and front-end development fundamentals.
+A responsive dashboard interface developed during my software development internship at Logbot S.R.L. The project demonstrates modern front-end development practices with a focus on clean design, responsiveness, and user experience.
 
 ---
+
+## Preview
+
 ## Preview
 ![Preview](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Demo%20HVAC1.jpg)
 ![Preview](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Truckpanel3.jpg)
@@ -13,37 +13,70 @@ These projects were developed to improve my skills in UI/UX design, responsive l
 ![preview](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Map%20panel2.jpg)
 ---
 
-## My Role
-- Designed and developed responsive user interfaces using HTML, CSS, and JavaScript  
-- Built structured and reusable front-end components  
-- Focused on clean UI design and user experience  
-- Ensured responsiveness across desktop, tablet, and mobile devices  
+## Features
+
+- Responsive dashboard layout
+- Truck management panel
+- Warehouse overview
+- Interactive map section
+- Mobile-friendly design
+- Clean and modern UI
 
 ---
 
 ## Technologies Used
-- HTML5  
-- CSS3  
-- JavaScript  
-- Bootstrap (if used)  
+
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- Responsive Design
 
 ---
 
-## Key Features
-- Responsive design for multiple screen sizes  
-- Clean and modern UI layouts  
-- Interactive front-end elements  
-- Focus on usability and simplicity  
+## Project Structure
+
+```
+├── index.html
+├── css
+├── js
+├── images
+└── README.md
+```
 
 ---
 
-## Purpose
-The goal of these projects is to demonstrate my ability to build functional and responsive web interfaces while following good design and development practices.
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/shirinmohajeri/hvac-dashboard-ui.git
+```
+
+Open the project folder and launch `index.html` in your browser.
 
 ---
 
-## Contact
-Shirin Mohajeri  
+## Live Demo
+
+Coming Soon
+
+---
+
+## Future Improvements
+
+- React implementation
+- REST API integration
+- Authentication
+- Dark Mode
+- Dashboard Charts
+
+---
+
+## Author
+
+**Shirin Mohajeri**
+
 Email: shirin.mohajeri6b8@yahoo.com  
 GitHub: https://github.com/shirinmohajeri/
 Linkdin: www.linkedin.com/in/shirin-mohajeri
