@@ -50,7 +50,7 @@ A responsive dashboard interface developed during my software development intern
 Clone the repository:
 
 ```bash
-git clone https://github.com/shirinmohajeri/hvac-dashboard-ui.git
+https://github.com/shirinmohajeri/Hvac-Demo.git
 ```
 
 Open the project folder and launch `index.html` in your browser.
