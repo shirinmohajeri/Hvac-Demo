@@ -36,7 +36,7 @@ A lightweight, single-page HVAC & logistics monitoring dashboard — built with 
 
 
 
-| ![Truck Panel]([docs/screenshots/map-panel.jpg](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Map%20panel1.jpg)) | ![Truck Panel](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Truck%20panel.jpg)
+| ![Truck Panel](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Map%20panel1.jpg) | ![Truck Panel](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Truck%20panel.jpg)
 
 ---
 
