@@ -30,13 +30,13 @@ A lightweight, single-page HVAC & logistics monitoring dashboard — built with 
 ## 🖼 Preview
  
 | ![Home](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/first%20page.jpg)| 
-| ![Warehouse](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/warehouse1.jpg) |
-| ![Warehouse](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/warehouse2.jpg) |
-| ![Warehouse](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/warehouse3.jpg) |
+| ![Warehouse](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/warehouse1.jpg)
+| ![Warehouse](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/warehouse2.jpg)
+| ![Warehouse](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/warehouse3.jpg) 
 
-| Map Panel | Truck Panel |
-|---|---|
-| ![Map Panel](docs/screenshots/map-panel.jpg) | ![Truck Panel](docs/screenshots/truck-panel.jpg) |
+
+
+| ![Truck Panel]([docs/screenshots/map-panel.jpg](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Map%20panel1.jpg)) | ![Truck Panel](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Truck%20panel.jpg)
 
 ---
 
