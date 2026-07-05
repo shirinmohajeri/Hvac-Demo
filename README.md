@@ -32,7 +32,7 @@ A lightweight, single-page HVAC & logistics monitoring dashboard — built with 
 | Home | Warehouse |
 |---|---|
 | ![Home](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/first%20page.jpg) 
-| ![Warehouse](docs/screenshots/w) |
+| ![Warehouse](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/warehouse1.jpg) |
 
 | Map Panel | Truck Panel |
 |---|---|
