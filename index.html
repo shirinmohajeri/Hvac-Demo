@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HVAC Demo App</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<div id="app">
+
+<section class="app-page active" data-page="home">
+
+  <main class="page">
+    <header class="header">
+      <div class="brand">
+        <img
+          class="brand__logo"
+          src="assets/Picture1.jpg"
+          alt="HVAC Demo"
+        />
+        <div class="brand__text">
+          <div class="brand__title">DEMO HVAC</div>
+          <div class="brand__sub">Our Services</div>
+        </div>
+      </div>
+      <div class="status">
+        <span class="status__dot" aria-hidden="true"></span>
+        <span>System Online • Demo Mode</span>
+      </div>
+    </header>
+    <section class="cardsWrap">
+      <div id="cardsGrid" class="cardsGrid" aria-label="Modules grid"></div>
+    </section>
+  </main>
+  
+
+</section>
+
+<section class="app-page" data-page="dashboard">
+
+
+<a href="#" class="back-home" data-nav="home">← Back to Home</a>
+<h1 class="hero-title">DASHBOARD</h1>
+<div class="button-container">
+  <button class="hvac-button">Facility: Warehouse</button>
+  <button class="hvac-button">System: Chiller System</button>
+  <button class="hvac-button">Controller: OEM-GW-01</button>
+</div>
+
+<div class="content">
+
+  <div class="stat-grid">
+    <div class="stat-card blue"><div class="label">🌡️ AVERAGE TEMP</div><div class="value">14.6 °C</div><div class="desc">Weighted average of main rooms</div></div>
+    <div class="stat-card red"><div class="label">🔔 ACTIVE ALARMS</div><div class="value">9</div><div class="desc">Across all monitored areas</div></div>
+    <div class="stat-card yellow"><div class="label">⚡ ENERGY TODAY</div><div class="value">312 kWh</div><div class="desc">Total HVAC consumption</div></div>
+    <div class="stat-card green"><div class="label">⏱️ COMPRESSOR RUNTIME</div><div class="value">68 %</div><div class="desc">Share of time running in last 24h</div></div>
+  </div>
+
+  <div class="panel">
+    <h3>Zones Overview</h3>
+    <div class="sub">Quick status of temperatures across all monitored zones</div>
+    <div class="zone-grid" id="zoneGrid-dashboard"></div>
+  </div>
+
+  <div class="panel">
+    <h3>Quick Access</h3>
+    <div class="sub">Jump straight to a module</div>
+    <div class="quick-links">
+      <a class="quick-link" href="#" data-nav="warehouse"><span class="ic">🏠</span>Warehouse</a>
+      <a class="quick-link" href="#" data-nav="alarms"><span class="ic">🛎️</span>Alarms</a>
+      <a class="quick-link" href="#" data-nav="truck"><span class="ic">🚚</span>Truck</a>
+      <a class="quick-link" href="#" data-nav="map"><span class="ic">📍</span>Map</a>
+    </div>
+  </div>
+
+</div>
+
+
+
+</section>
+
+<section class="app-page" data-page="alarms">
+
+
+<a href="#" class="back-home" data-nav="home">← Back to Home</a>
+<h1 class="hero-title">ALARMS</h1>
+<div class="button-container">
+  <button class="hvac-button">Facility: Warehouse</button>
+  <button class="hvac-button">System: Chiller System</button>
+  <button class="hvac-button">Controller: OEM-GW-01</button>
+</div>
+
+<div class="content">
+  <div class="legend-row">
+    <span><i class="dot normal"></i> Normal</span>
+    <span><i class="dot warning"></i> Warning</span>
+    <span><i class="dot alarm"></i> Alarm</span>
+  </div>
+
+  <div class="panel">
+    <h3>Active Alarms</h3>
+    <div class="sub">Critical alerts, warnings, and event history</div>
+    <table>
+      <thead>
+        <tr><th>Device</th><th>Zone</th><th>Severity</th><th>Message</th><th>Time</th><th></th></tr>
+      </thead>
+      <tbody id="alarmRows"></tbody>
+    </table>
+  </div>
+</div>
+
+
+
+</section>
+
+<section class="app-page" data-page="warehouse">
+
+
+<a href="#" class="back-home" data-nav="home">← Back to Home</a>
+<h1 class="hero-title">WAREHOUSE</h1>
+<div class="button-container">
+  <button class="hvac-button">Facility: Warehouse</button>
+  <button class="hvac-button">System: Chiller System</button>
+  <button class="hvac-button">Controller: OEM-GW-01</button>
+</div>
+
+<div class="content">
+
+  <div class="overview-bar">
+    <div>
+      <div class="title">OVERVIEW</div>
+      <div class="sub">Central view of plants, alarms and comfort conditions</div>
+    </div>
+    <div class="pills">
+      <span class="ov-pill">✅ System: <b id="ovSystem">Online</b></span>
+      <span class="ov-pill">🔆 Mode: <b id="ovMode">Cooling</b></span>
+      <span class="ov-pill">🔔 Active alarms: <b id="ovAlarms">9</b></span>
+      <span class="ov-pill">❄️ Defrost: <b id="ovDefrost">Off</b></span>
+      <span class="ov-pill">🌥️ Outside: <b id="ovOutside">18°C</b></span>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card alarms">
+      <div class="label">🔔 TOTAL ALARMS</div>
+      <div class="value" id="statAlarms">9</div>
+      <div class="desc">Across all monitored areas</div>
+    </div>
+    <div class="stat-card temp">
+      <div class="label">🌡️ AVERAGE TEMP</div>
+      <div class="value" id="statTemp">14.6 °C</div>
+      <div class="desc">Weighted average of main rooms</div>
+    </div>
+    <div class="stat-card energy">
+      <div class="label">⚡ ENERGY TODAY</div>
+      <div class="value" id="statEnergy">312 kWh</div>
+      <div class="desc">Total HVAC consumption</div>
+    </div>
+    <div class="stat-card runtime">
+      <div class="label">⏱️ COMPRESSOR RUNTIME</div>
+      <div class="value" id="statRuntime">68 %</div>
+      <div class="desc">Share of time running in last 24h</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="section-title">ENERGY WAREHOUSE</div>
+      <div class="btn-row">
+        <button class="filter-btn blue">Air-Handling</button>
+        <button class="filter-btn green">Cold Rooms</button>
+        <button class="filter-btn red">Loading Bay</button>
+      </div>
+
+      <div class="alarm-service">
+        <div class="top-row">
+          <h4>Alarm Service <span class="tag">Plants, gateways &amp; devices</span></h4>
+        </div>
+        <div class="path">warehouse • chiller • hvac-ahu • cold-room • loading-bay • office-area • warehouse-zone</div>
+        <div class="status-pills">
+          <span class="ok">● Most plants OK</span>
+          <span class="warn">● Some warnings</span>
+          <span class="crit">● Check critical alarms</span>
+        </div>
+
+        <div class="reset-row">
+          <div class="rtitle">Reset Alarm 🙂</div>
+          <button class="settings-btn">⚙️ Settings</button>
+        </div>
+        <div class="reset-desc">Overall alarm status &amp; settings</div>
+        <div class="progress"><div class="fill"></div></div>
+
+        <div class="plants-label">PLANTS – ALARM OVERVIEW</div>
+        <div class="plants-grid" id="plantsGrid"></div>
+
+        <div class="plants-label">GATEWAYS &amp; DEVICE MODELS</div>
+        <div class="plants-grid" id="gatewaysGrid"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="trucks-panel">
+        <h3>🚛 MOVING TRUCKS</h3>
+        <div class="sub">System operation status – Normal / Warning / Alarm</div>
+        <button class="details-btn">Details</button>
+        <div class="legend-row">
+          <span><i class="dot normal"></i> Normal</span>
+          <span><i class="dot warning"></i> Warning</span>
+          <span><i class="dot alarm"></i> Alarm</span>
+        </div>
+        <div class="traffic-light">
+          <div class="bulb red"></div>
+          <div class="bulb yellow"></div>
+          <div class="bulb green on"></div>
+        </div>
+        <div class="road">
+          <span class="truck-emoji">🚚</span>
+          <span class="msg">Normal — All Systems OK</span>
+        </div>
+        <div class="road">
+          <span class="msg">Warning — Check Recommended</span>
+          <span class="status-icon">⚠️</span>
+        </div>
+        <div class="road">
+          <span class="msg">ALARM — Immediate Service Needed</span>
+          <span class="status-icon">🚨</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alarm Trucks Overview -->
+  <div class="hvac-dashboard">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+      <div>
+        <h3>🚨 Alarm Trucks Overview</h3>
+        <div class="sub">Key refrigerated trucks – latest alarm status and health.</div>
+      </div>
+      <button class="details-btn" style="margin:0;">Live alarms from Logbot HVAC demo</button>
+    </div>
+    <div class="legend-row" style="justify-content:flex-start; margin-bottom:14px;">
+      <span><i class="dot normal"></i> Normal</span>
+      <span><i class="dot warning"></i> Warning – check soon</span>
+      <span><i class="dot alarm"></i> Alarm – action required</span>
+    </div>
+    <div class="truck-cards" id="truckCards-warehouse"></div>
+  </div>
+
+  <!-- HVAC Overview Dashboard -->
+  <div class="hvac-dashboard">
+    <h3>HVAC Overview Dashboard</h3>
+    <div class="sub">Live snapshot — warehouse, cold rooms and loading bay</div>
+    <div class="metric-badge">Updated from Logbot metrics: supply-temp · return-temp · room-temp · co2_ppm · airflow · alarms_count</div>
+
+    <div class="mini-stats">
+      <div class="mini-stat blue"><div class="l">📦 COOLING LOAD</div><div class="v">127 kW</div><div class="d">Based on supply / return temperature</div></div>
+      <div class="mini-stat red"><div class="l">🚨 ACTIVE ALARMS</div><div class="v">3</div><div class="d">Metric: alarms_count (all devices)</div></div>
+      <div class="mini-stat green"><div class="l">✅ UNITS HEALTHY</div><div class="v">4 / 5</div><div class="d">Chiller, AHU, cold rooms, loading bay</div></div>
+      <div class="mini-stat orange"><div class="l">🌡️ AVERAGE ROOM TEMP</div><div class="v">4.2 °C</div><div class="d">Metric: room-temp (warehouse-zone)</div></div>
+    </div>
+
+    <div class="panel-2col">
+      <div class="subpanel">
+        <h4>Cooling Performance</h4>
+        <div class="desc">Supply vs Return &amp; ΔT on main chiller</div>
+        <div class="donut-wrap">
+          <div class="donut"></div>
+          <div class="donut-legend">
+            Supply Temperature <b>8.4 °C</b><br>
+            Return Temperature <b>14.0 °C</b><br>
+            Compressor Status <b style="color:#16a34a;">ON</b><br>
+            Defrost Active <b>0 / 4</b>
+          </div>
+        </div>
+      </div>
+      <div class="subpanel">
+        <h4>Alarms by Device</h4>
+        <div class="desc">Where do we see the most problems? (Metric: alarms_count per device)</div>
+        <div class="bar-list" id="alarmBars"></div>
+      </div>
+    </div>
+
+    <div class="panel-2col">
+      <div class="subpanel">
+        <h4>Component Health</h4>
+        <div class="desc">Quick self-diagnosis of key elements</div>
+        <div class="health-list" id="healthList"></div>
+      </div>
+      <div class="subpanel">
+        <h4>Alarm Timeline (Today)</h4>
+        <div class="desc">Distribution of alarms across the last 24 hours (Metric: alarms_count by hour)</div>
+        <div class="timeline">
+          <div class="g"></div><div class="g"></div><div class="a"></div><div class="r"></div><div class="g"></div><div class="a"></div>
+        </div>
+        <div class="timeline-labels"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+</section>
+
+<section class="app-page" data-page="truck">
+
+
+<a href="#" class="back-home" data-nav="home">← Back to Home</a>
+<h1 class="hero-title">TRUCK PANEL</h1>
+<div class="button-container">
+  <button class="hvac-button">Facility: Warehouse</button>
+  <button class="hvac-button">System: Chiller System</button>
+  <button class="hvac-button">Controller: OEM-GW-01</button>
+</div>
+
+<div class="status-legend">
+  <div class="status-box normal"><span class="emoji">🚚</span>Normal</div>
+  <div class="status-box warning"><span class="emoji">⚠️</span>Warning</div>
+  <div class="status-box alarm"><span class="emoji">🚨</span>Alarm</div>
+</div>
+
+<div class="content">
+
+  <!-- Moving Trucks - Logistics -->
+  <div class="panel">
+    <h2>🚚 Moving Trucks – Logistics</h2>
+    <div id="logisticsRoads"></div>
+  </div>
+
+  <!-- HVAC Service Trucks -->
+  <div class="panel">
+    <h2>🚛 HVAC Service Trucks</h2>
+    <div class="subtitle">System operation status – Normal / Warning / Alarm</div>
+    <div class="legend-row">
+      <span><i class="dot normal"></i> Normal</span>
+      <span><i class="dot warning"></i> Warning</span>
+      <span><i class="dot alarm"></i> Alarm</span>
+    </div>
+    <div id="serviceRoads"></div>
+  </div>
+
+  <!-- HVAC Service Trucks visual -->
+  <div class="panel">
+    <h2>🚛 HVAC Service Trucks</h2>
+    <div class="subtitle">Visual status of HVAC logistics &amp; alarms</div>
+    <div class="legend-row">
+      <span><i class="dot normal"></i> Normal operation</span>
+      <span><i class="dot alarm"></i> Alarm / Intervention required</span>
+    </div>
+    <div id="visualRoads"></div>
+  </div>
+
+  <!-- Alarm Trucks Overview -->
+  <div class="panel">
+    <h2 style="text-align:left; display:flex; align-items:center; gap:10px;">🚨 Alarm Trucks Overview</h2>
+    <div class="subtitle" style="text-align:left;">Key refrigerated trucks – latest alarm status and health.</div>
+    <div class="legend-row" style="justify-content:flex-start;">
+      <span><i class="dot normal"></i> Normal</span>
+      <span><i class="dot warning"></i> Warning – check soon</span>
+      <span><i class="dot alarm"></i> Alarm – action required</span>
+    </div>
+    <div class="truck-cards" id="truckCards-truck"></div>
+  </div>
+
+  <!-- Alarm Panel -->
+  <div class="alarm-panel">
+    <div class="bar">Alarm Panel</div>
+    <div class="row">Alarm Status <span class="chip" id="alarmStatusChip">Normal</span></div>
+    <div class="row">Reset Alarm <span class="chip">Passive</span></div>
+    <div class="row">Settings <span>⚙️</span></div>
+  </div>
+
+</div>
+
+
+
+</section>
+
+<section class="app-page" data-page="map">
+
+
+<a href="#" class="back-home" data-nav="home">← Back to Home</a>
+<h1 class="hero-title">MAP PANEL</h1>
+<div class="button-container">
+  <button class="hvac-button">Home</button>
+  <button class="hvac-button">Facility: Warehouse</button>
+  <button class="hvac-button">System: Chiller System</button>
+  <button class="hvac-button">Controller: OEM-GW-01</button>
+</div>
+
+<div id="hvac-map">
+  <div class="map-grid" id="zoneGrid-map"></div>
+
+  <div class="legend">
+    <span><i class="dot normal"></i> Normal (&le;10&deg;C)</span>
+    <span><i class="dot warning"></i> Warning (10&ndash;20&deg;C)</span>
+    <span><i class="dot alarm"></i> Alarm (&ge;20&deg;C)</span>
+  </div>
+  <div class="breadcrumb">
+    Facility: <b>$site</b> &nbsp; System: <b>$area</b> &nbsp; Controller: <b>$gateway</b>
+  </div>
+
+  <div class="lower-grid">
+    <div id="map"></div>
+    <div class="device-cards" id="deviceCards"></div>
+  </div>
+</div>
+
+
+
+
+</section>
+
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
