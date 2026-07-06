@@ -23,21 +23,18 @@ A lightweight, single-page HVAC & logistics monitoring dashboard — built with 
 - [Design System](#-design-system)
 - [Browser Support](#-browser-support)
 - [Roadmap](#-roadmap)
-- [License](#-license)
 
 ---
 
 ## 🖼 Preview
- 
- ![Home](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/first%20page.jpg)
- ![Warehouse](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/warehouse1.jpg)
- ![Warehouse](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/warehouse2.jpg)
- ![Warehouse](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/warehouse3.jpg) 
 
+| Home | Warehouse |
+|---|---|
+| ![Home](assets/home.jpg) | ![Warehouse](assets/warehouse-1.jpg) |
 
-
- ![Truck Panel](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Map%20panel1.jpg) 
- ![Truck Panel](https://raw.githubusercontent.com/shirinmohajeri/Hvac-Demo/refs/heads/main/Truck%20panel.jpg)
+| Map Panel | Truck Panel |
+|---|---|
+| ![Map Panel](assets/map-panel.jpg) | ![Truck Panel](assets/truck-panel.jpg) |
 
 ---
 
@@ -67,11 +64,9 @@ hvac-project/
 ├── js/
 │   └── app.js            # Router + all module logic (data + rendering), scoped per page
 │
-├── assets/
-│   └── Picture1.jpg       # Logo / brand image
-│
-└── docs/
-    └── screenshots/       # Images used in this README
+└── assets/
+    ├── Picture1.jpg       # Logo / brand image
+    └── ...                # Screenshots used in this README
 ```
 
 ---
