@@ -98,7 +98,6 @@ cd Hvac-Demo
 npx serve .
 # or
 python3 -m http.server 8080
-\`\`\`
 
 > 💡 Opening `index.html` directly (`file://…`) works for everything except very strict browser security settings around the Leaflet map — if the map tiles don't load, serve the folder with a tiny local server instead (`npx serve .` is the fastest option).
 ```
