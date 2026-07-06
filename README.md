@@ -88,16 +88,19 @@ hvac-project/
 
 No installation, no build tools, no dependencies to install.
 
-```bash
+\`\`\`bash
 # 1. Clone the repository
-git clone https://github.com/<your-username>/hvac-project.git
-cd hvac-project
+git clone https://github.com/shirinmohajeri/Hvac-Demo.git
+cd Hvac-Demo
 
 # 2. Open it
 # Just double-click index.html, or serve it locally:
 npx serve .
 # or
 python3 -m http.server 8080
+\`\`\`
+
+> 💡 Opening `index.html` directly (`file://…`) works for everything except very strict browser security settings around the Leaflet map — if the map tiles don't load, serve the folder with a tiny local server instead (`npx serve .` is the fastest option).
 ```
 
 > 💡 Opening `index.html` directly (`file://…`) works for everything except very strict browser security settings around the Leaflet map — if the map tiles don't load, serve the folder with a tiny local server instead (`npx serve .` is the fastest option).
